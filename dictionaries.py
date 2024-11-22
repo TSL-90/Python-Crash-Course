@@ -74,3 +74,54 @@ alien_0 = {'color': 'green', 'points': '5', 'speed': 'slow'}
 
 point_value = alien_0.get('points', 'No point value assigned.')
 print(point_value)
+
+# person example
+best_friend = {
+    'first_name': 'Fake',
+    'last_name': 'Fakerson',
+    'age': 34,
+    'city': 'Santa Fe',
+}
+print(f"My best friend is {best_friend['first_name']} {
+    best_friend['last_name']}. They live in {best_friend['city']}.")
+
+# looping in dictionaries
+user_0 = {
+    'username': 'tsl90',
+    'first': 'tyson',
+    'last': 'lanier'
+}
+for key, value in user_0.items():
+    print(f"\nKey: {key}")
+    print(f"Value: {value}")
+
+# another example
+favorite_languages = {
+    'jen': 'python',
+    'bob': 'c',
+    'tina': 'rust',
+    'phil': 'java'
+}
+for name, language in favorite_languages.items():
+    print(f"{name.title()}'s favorite language is {language.title()}.")
+
+# looping through keys only, this is the default behavior
+# calling the keys() method can make the code easier to read
+favorite_languages = {
+    'jen': 'python',
+    'bob': 'c',
+    'tina': 'rust',
+    'phil': 'java'
+}
+for name in favorite_languages.keys():
+    print(name.title())
+
+# this is the same as above code but without the keys() method
+favorite_languages = {
+    'jen': 'python',
+    'bob': 'c',
+    'tina': 'rust',
+    'phil': 'java'
+}
+for name in favorite_languages:
+    print(name.title())
