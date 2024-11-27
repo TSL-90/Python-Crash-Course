@@ -125,3 +125,19 @@ favorite_languages = {
 }
 for name in favorite_languages:
     print(name.title())
+
+# use of set() data type to check for duplicates
+favorite_languages = {
+    'jen': 'python',
+    'bob': 'c',
+    'tina': 'rust',
+    'phil': 'java',
+    'edward': 'python',
+    'alex': 'java',
+    'collin': 'c'
+}
+print("The following languages have been mentioned:")
+for language in set(favorite_languages.values()):
+    print(language.title())
+for name in favorite_languages:
+    print("Thank you for your response, " + name.title() + "!")
