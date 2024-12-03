@@ -184,14 +184,14 @@ pizza = {
     'toppings': ['cheese', 'sausage', 'bell peppers'],
 }
 
-# order summary
+# order summary (list in dictionary)
 print(f"You ordered a {pizza['crust']} pizza "
       "with the following toppings:")
 
 for topping in pizza['toppings']:
     print(f"\t{topping}")
 
-# another example
+# another example (list in dictionary)
 favorite_languages = {
     'jen': ['python', 'rust'],
     'sarah': ['c', 'java'],
