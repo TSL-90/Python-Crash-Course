@@ -113,3 +113,74 @@ x = 1
 while x <= 5:
     print(x)
     x += 1
+
+# 7-4 pizza toppings
+prompt = "\nPlease enter the each pizza topping you would like:"
+prompt += "\n(Enter 'quit' when you have finished adding toppings.) "
+
+while True:
+    pizza = input(prompt)
+
+    if pizza == 'quit':
+        break
+    else:
+        print(f"We will add {pizza.title()} to your pizza!")
+
+# 7-5 movie ticket
+prompt = int(input("Please input your age: "))
+
+if prompt < 3:
+    print("Your ticket is free!")
+elif 3 <= prompt < 13:
+    print("Your ticket price is $10.")
+else:
+    print("Your ticket price is $15.")
+
+# while loop with lists and dictionaries example
+# Start with users that need to be verified,
+#  and an empty list to hold confirmed users
+
+unconfirmed_users = ['alice', 'brian', 'candace']
+confirmed_users = []
+while unconfirmed_users:
+    current_user = unconfirmed_users.pop()
+
+    print(f"Verifying user: {current_user.title()}")
+    confirmed_users.append(current_user)
+
+print("\nThe following users have been confirmed:")
+for confirmed_user in confirmed_users:
+    print(confirmed_user.title())
+
+# mountain poll program
+responses = {}
+polling_active = True  # set a flag to indicate that polling is active
+while polling_active:  # prompt for the persons name and response
+    name = input("\nWhat is your name? ")
+    response = input("Which mountain would you like to climb someday? ")
+    responses[name] = response  # store the response in the dictionary
+    repeat = input("Would you like to let another person respond? (yes/no) ")
+    if repeat == 'no':
+        polling_active = False
+
+print("\n---Poll Results---")  # polling is complete, show the results
+for name, response in responses.items():
+    print(f"{name} would like to climb {response}.")
+# note, the user can type ANYTHING but "no" and the code will proceed.
+
+# 7-8 Deli & 7-9 No pastrami
+sandwich_orders = ['philly', 'pastrami', 'pb&j', 'club', 'chopped cheese',
+                   'pastrami']
+while 'pastrami' in sandwich_orders:
+    sandwich_orders.remove('pastrami')
+print("Sorry we are out of pastrami!")
+finished_sandwiches = []
+while sandwich_orders:
+    sandwich = sandwich_orders.pop()
+
+    print(f"I made your: {sandwich.title()}")
+    finished_sandwiches.append(sandwich)
+
+print("\nThe following sandwiches have been made today.")
+for finished_sandwich in finished_sandwiches:
+    print(finished_sandwich.title())
