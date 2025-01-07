@@ -236,3 +236,46 @@ completed_models = []
 
 print_models(unprinted_designs, completed_models)
 show_completed_models(completed_models)
+
+# print_models(unprinted_designs[:], completed_models)
+# you can use [:] "slice" to create a copy of the list and work off the copy
+# while keeping the original list untouched by the function.
+
+
+# 8-9 Messages, 8-10 Sending, 8-11 Archived
+
+
+def show_messages(unsent_messages, sent_messages):
+    """Show a short list of text messages"""
+    while unsent_messages:
+        current_message = unsent_messages.pop()
+        print(f"Sending Message: {current_message}")
+        sent_messages.append(current_message)
+
+
+def outbox(sent_messages):
+    """Show the list of sent messages."""
+    print("\nThis message was sent:")
+    for sent_message in sent_messages:
+        print(sent_message)
+
+
+unsent_messages = ['Hello', 'Have a nice day', 'BRB', 'TTYL']
+sent_messages = []
+
+show_messages(unsent_messages[:], sent_messages)
+outbox(sent_messages)
+print(unsent_messages, sent_messages)
+
+
+# Positional and Arbitrary Arguments
+
+def make_pizza(size, *toppings):  # '*' makes a tuple containing all values
+    """Summarize the pizza we are about to make"""
+    print(f"\nMaking a {size} pizza with the following toppings:")
+    for topping in toppings:
+        print(f"- {topping}")
+
+
+make_pizza(16, 'pepperoni')
+make_pizza(12, 'mushrooms', 'bell pepper', 'extra cheese')
