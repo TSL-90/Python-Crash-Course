@@ -297,3 +297,45 @@ print(user_profile)
 
 
 # 8-12 Sandwiches
+
+def sandwich(*items):
+    """Show the topping requested on a sandwich"""
+    print("\nWe will add the following toppings to your sandwich:")
+    for item in items:
+        print(f"- {item}")
+
+
+sandwich('turkey', 'swiss')
+sandwich('peanut butter', 'jelly')
+sandwich('pastrami', 'provolone')
+
+
+# 8-12 User Profile
+
+def build_profile(first, last, **user_info):
+    """Build a dictionary containing everything we know about a user."""
+    user_info['first_name'] = first
+    user_info['last_name'] = last
+    return user_info
+
+
+user_profile = build_profile(
+    'tyson', 'lanier', location='new mexico', field='energy',
+    hobby1='fly fishing', hobby2='camping')
+
+print(user_profile)
+
+
+# 8-14 Cars
+
+def car_profile(manufacturer, model_name, **additional_info):
+    """Create a dictionary of information about a car"""
+    additional_info['make'] = manufacturer
+    additional_info['model'] = model_name
+    return additional_info
+
+
+car_info = car_profile(
+    'lexus', 'rx350', year='2007', drive='automatic', awd='True')
+
+print(car_info)
