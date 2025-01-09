@@ -29,3 +29,14 @@ my_dog.roll_over()
 print(f"\nYour dog's name is {your_dog.name}.")
 print(f"Your dog is {your_dog.age} years old.")
 your_dog.sit()
+
+
+# 9-1 Restaurant
+
+class Restaurant:
+    """A simple restaurant model."""
+
+    def __init__(self, restaurant_name, cuisine_type):
+        """Initialize the restaurant name and food type."""
+        self.resaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
