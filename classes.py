@@ -31,7 +31,7 @@ print(f"Your dog is {your_dog.age} years old.")
 your_dog.sit()
 
 
-# 9-1 Restaurant 9-2 Three Restaurants
+# 9-1 Restaurant, 9-2 Three Restaurants, 9-4 Number Served
 
 class Restaurant:
     """A simple restaurant model."""
@@ -40,6 +40,7 @@ class Restaurant:
         """Initialize the restaurant name and food type."""
         self.restaurant_name = restaurant_name
         self.cuisine_type = cuisine_type
+        self.number_served = 0
 
     def describe_restaurant(self):
         """Describe the restaurant."""
@@ -49,47 +50,89 @@ class Restaurant:
         """Provide a message say that the restaurant is now open."""
         print(f"{self.restaurant_name} is now open!")
 
+    def set_number_served(self, customers):
+        """Set the number of customers served."""
+        self.number_served = customers
+
+    def increment_number_served(self, customer):
+        """Add the given customer volume tot the served output."""
+        self.number_served += customer
+
 
 my_restaurant = Restaurant("NM's best subs", "Sandwiches")
 best_voted_restaurant = Restaurant("Savoy", "Italian Cuisine")
 worst_in_town = Restaurant("Golden Pride", "Breakfast Burritos")
+random_restaurant = Restaurant("Bob's Burgers", "Burgers")
+
+random_restaurant.number_served = 106  # 9-4 step 1
+random_restaurant.set_number_served(125)  # 9-4 step 2
+random_restaurant.increment_number_served(63)  # 9-4 step 3
+
+print(f"{random_restaurant.restaurant_name} has served "
+      f"{random_restaurant.number_served} customers.")
 
 print(f"{my_restaurant.restaurant_name} is a tasty spot to eat!")
+
 my_restaurant.describe_restaurant()
 best_voted_restaurant.describe_restaurant()
 worst_in_town.describe_restaurant()
 
 
-# 9-3 Users
+# 9-3 Users, 9-5 Login Attempts
 
-class User:
+class User:  # this is a class
     """Create a user model."""
 
     def __init__(self, first_name, last_name, age, gender):
-        """Initialize user attributs."""
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-        self.gender = gender
+        # this is the initalizer method
+        """Initialize user attributes."""
+        self.first_name = first_name  # this is a required attribute
+        self.last_name = last_name  # this is a required attribute
+        self.age = age  # this is a required attribute
+        self.gender = gender  # this is a required attribute
+        self.login_attempts = 0
+        # this is an instance attribute with a default value
 
-    def describe_user(self):
+    def describe_user(self):  # this is a method
         """Provide user details."""
         print(f"{self.first_name} {self.last_name} is a "
               f"{self.age}-year old {self.gender}.")
 
-    def greet_user(self):
+    def greet_user(self):  # this is a method
         """Output a user greeting."""
         print(f"\nHello {self.first_name} {self.last_name}, "
               f"welcome to your new profile.")
 
+    def increment_login_attemps(self):  # this is a method
+        """Increment the number of login attempts by 1."""
+        self.login_attempts += 1
 
-user_tyson = User('Tyson', 'Lanier', '34', 'male')
-user_david = User('David', 'Bowie', '39', 'non binary')
-user_tonks = User('Tonks', 'Nymphadora', '24', 'female')
-user_cyborg = User('Victor', 'Stone', '18', 'cyborg')
+    def reset_login_attempts(self):  # this is a method
+        """Resets the number of login attempts to 0."""
+        self.login_attempts = 0
+
+
+user_tyson = User('Tyson', 'Lanier', '34', 'male')  # this is an instance
+user_david = User('David', 'Bowie', '39', 'non binary')  # this is an instance
+user_tonks = User('Tonks', 'Nymphadora', '24', 'female')  # this is an instance
+user_cyborg = User('Victor', 'Stone', '18', 'cyborg')  # this is an instance
 
 user_tyson.greet_user()
 user_tyson.describe_user()
+user_tyson.increment_login_attemps()
+print(user_tyson.login_attempts)
+user_tyson.increment_login_attemps()
+print(user_tyson.login_attempts)
+user_tyson.increment_login_attemps()
+print(user_tyson.login_attempts)
+user_tyson.increment_login_attemps()
+print(user_tyson.login_attempts)
+user_tyson.increment_login_attemps()
+print(user_tyson.login_attempts)
+user_tyson.increment_login_attemps()
+print(user_tyson.login_attempts)
+user_tyson.reset_login_attempts()
+print(user_tyson.login_attempts)
 
 user_david.greet_user()
 user_david.describe_user()
