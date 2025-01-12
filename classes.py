@@ -78,6 +78,26 @@ best_voted_restaurant.describe_restaurant()
 worst_in_town.describe_restaurant()
 
 
+# 9-6 Ice Cream Stand (subclass of superclass Restaurant 9-4)
+
+class IceCreamStand(Restaurant):
+    """Create a specific type of restaurant."""
+
+    def __init__(self, restaurant_name, cuisine_type):
+        """Initalize attributes of the parent class."""
+        super().__init__(restaurant_name, cuisine_type)
+        self.flavors = ['vanilla', 'chocolate', 'strawberry']
+
+    def flavor(self):
+        """Method that displays the flavors available."""
+        print(f"We currently have {self.flavors} available.")
+
+
+the_cream_shop = IceCreamStand('The Cream Shop', 'Ice Cream')
+
+the_cream_shop.flavor()
+
+
 # 9-3 Users, 9-5 Login Attempts
 
 class User:  # this is a class
@@ -142,3 +162,38 @@ user_tonks.describe_user()
 
 user_cyborg.greet_user()
 user_cyborg.describe_user()
+
+
+# 9-8 Privileges
+
+class Privileges:
+    """Create an indipendent class for privileges."""
+
+    def __init__(self, privileges=None):
+        if privileges is None:
+            privileges = ['can add post', 'can delete post', 'can ban user']
+        self.privileges = privileges
+
+    def show_privileges(self):
+        """Show a list of administrator privileges."""
+        print(f"Administrator's can {self.privileges}.")
+
+# 9-7 Admin (subclass of User superclass)
+
+
+class Admin(User):
+    """Create an admin class under users."""
+
+    def __init__(self, first_name, last_name, age, gender):
+        """Initalize attributes of the parent class User."""
+        super().__init__(first_name, last_name, age, gender)
+        self.privileges = Privileges()
+
+    def show_privileges(self):
+        """Show a list of administrator privileges."""
+        print(f"Administrator's can {self.privileges.show_privileges}.")
+
+
+user_admin1 = Admin('Tony', 'Stark', '39', 'male')
+
+user_admin1.privileges.show_privileges()
